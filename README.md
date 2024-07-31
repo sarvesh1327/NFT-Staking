@@ -1,66 +1,43 @@
-## Foundry
+## NFT Staking
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+**This protocol allows users to stake their NFT in returns of a reward in terms of a ERC20 tokens**
 
-Foundry consists of:
+### Initiation of the Repo
+1. Install all the dependencies
+    ```shell
+    forge install --no-commit
+    ```
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+2. Complie the contracts
 
-## Documentation
+    ```shell
+    forge build
+    ```
 
-https://book.getfoundry.sh/
+### Deploy contracts
+   ```shell
+   make deploy
+   ```
 
-## Usage
-
-### Build
-
+### Testing
 ```shell
-$ forge build
+make test
 ```
+### Interaction
+1. Stake NFT
+   ```javascript
+   staking.stake(tokenId)
+   ```
+2. Unstake NFT
+   ```javascript
+   staking.unstake(tokenId)
+   ```
+3. Withdraw NFT
+    ```javascript
+   staking.withdraw(tokenId)
+   ```
 
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+4. Claim Rewards
+    ```javascript
+   staking.claim()
+   ```
